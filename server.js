@@ -64,7 +64,7 @@ client.on("message", function(topic, message) {
   metereologiaData.humedad = obj.Humi;
   metereologiaData.direccion_viento = obj.Direc_v;
   metereologiaData.velocidad_viento = obj.Vel_v;
-  metereologiaData.irradianza_solar = 0;
+  metereologiaData.irradianza_solar = obj.Irradianza;
   metereologiaData.numero_estacion = 1;
   metereologiaData.fecha = fecha_actual;
 
