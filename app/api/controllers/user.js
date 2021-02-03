@@ -71,13 +71,14 @@ module.exports = {
   updateById: function(req, res, next) {
 
     let user_id = req.body.id;
+    password_F = bcrypt.hashSync(req.body.password, 10);
     userModel.findByIdAndUpdate(
       user_id,
       {
         nombre: req.body.nombre,
         apellido: req.body.apellido,
         email: req.body.email,
-        password: bcrypt.hashSync(req.body.password, 10),
+        password: password_F,
         admin: req.body.admin,
       },
       function(err, UpdateInfo) {
