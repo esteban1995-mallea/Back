@@ -77,7 +77,7 @@ module.exports = {
         nombre: req.body.nombre,
         apellido: req.body.apellido,
         email: req.body.email,
-        password: req.body.password,
+        password: bcrypt.hashSync(req.body.password, 10),
         admin: req.body.admin,
       },
       function(err, UpdateInfo) {
@@ -95,7 +95,7 @@ module.exports = {
 
   //Metodo para eliminar algun registro de la base de datos por ID
   deleteById: function(req, res, next) {
-  
+
 
     userModel.findByIdAndRemove(req.body.id, function(err, DeleteInfo) {
       if (err) next(err);
