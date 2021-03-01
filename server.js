@@ -12,6 +12,8 @@ const mongoose = require("./config/database"); //Importando la configuracion de 
 var jwt = require("jsonwebtoken");
 const app = express();
 
+process.env.TZ = 'America/Santiago' // here is the magical line
+
 const router = express.Router();
 var ip = require("ip");
 const mqtt = require("mqtt");
