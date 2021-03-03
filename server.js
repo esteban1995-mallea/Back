@@ -59,7 +59,7 @@ client.on("message", function(topic, message) {
   console.log("Topico " + topic + "\nMensaje " + message.toString());
   let obj = JSON.parse(message.toString());
 
-  let fecha_actual = Date.now();
+  let fecha_actual = moment().tz("America/Santiago").format();
 
   var metereologiaData = new metereologiaModel();
   metereologiaData.temperatura = obj.Temp;
@@ -68,7 +68,7 @@ client.on("message", function(topic, message) {
   metereologiaData.velocidad_viento = obj.Vel_v;
   metereologiaData.irradianza_solar = obj.Irradianza;
   metereologiaData.numero_estacion = 1;
-  metereologiaData.fecha = moment().tz("America/Santiago").format();
+  metereologiaData.fecha = fecha_actual;
 
   // save model to database
   metereologiaData.save(function(err, res) {
