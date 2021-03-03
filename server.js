@@ -12,7 +12,7 @@ const mongoose = require("./config/database"); //Importando la configuracion de 
 var jwt = require("jsonwebtoken");
 const app = express();
 
-process.env.TZ = 'America/Santiago' // here is the magical line
+const moment = require('moment-timezone');
 
 const router = express.Router();
 var ip = require("ip");
@@ -68,7 +68,7 @@ client.on("message", function(topic, message) {
   metereologiaData.velocidad_viento = obj.Vel_v;
   metereologiaData.irradianza_solar = obj.Irradianza;
   metereologiaData.numero_estacion = 1;
-  metereologiaData.fecha = fecha_actual;
+  metereologiaData.fecha = moment().tz("America/Santiago").format();
 
   // save model to database
   metereologiaData.save(function(err, res) {
