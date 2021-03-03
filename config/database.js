@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 //Configurando la conexion para MongoDB, Debemos indicar el puerto y la IP de nuestra BD
 
 const uri =
-  "mongodb+srv://Mallea95:aLvVYnsjXjCE1wWu@cluster0.ffbri.gcp.mongodb.net/Tesis?retryWrites=true&w=majority";
+  "mongodb+srv://Mallea95:g85FX4xTNPlajOgd@cluster0.ffbri.gcp.mongodb.net/Tesis?retryWrites=true&w=majority";
 
 mongoose.connect(uri, {
   useNewUrlParser: true,
